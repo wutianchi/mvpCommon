@@ -9,6 +9,7 @@ repositories {
 dependencies {  
     ...  
     implementation 'com.github.wutianchi:mvpCommon:v1.0'  
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 }  
 3.AndroidManifest.xml添加 其中360和640为设计出图的规格，需要根据自己实际的UI图更改  拷下面的代码需要把《换成<
     《application  
