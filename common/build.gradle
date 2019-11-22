@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.wutianchi'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+    dataBinding {
+        enabled true
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    //rxjava
+    api rootProject.ext.dependencies.rxjava
+    api rootProject.ext.dependencies.rxgson
+    api rootProject.ext.dependencies.rxandroid
+    api rootProject.ext.dependencies["okhttp-log"]
+    //AutoDispose解决RxJava内存泄漏
+    api rootProject.ext.dependencies.autodispose
+    api rootProject.ext.dependencies["autodispose-android"]
+    api rootProject.ext.dependencies["autodispose-android-archcomponents"]
+    //注解
+    api rootProject.ext.dependencies.butterknife
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    //消息总线，具备生命周期感知能力，无需解除绑定
+    api rootProject.ext.dependencies["live-event-bus"]
+    //快速存储
+    api rootProject.ext.dependencies["fast-sharedpreferences"]
+    //最佳适配方案
+    api rootProject.ext.dependencies.autosize
+    //日志
+    api rootProject.ext.dependencies.klog
+    //  权限管理
+    api rootProject.ext.dependencies.easypermissions
+    //  RecyclerViewA通用适配器
+    api rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+    //glide图片加载库
+    api (rootProject.ext.dependencies.glide){
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
+    //快速存储
+    api rootProject.ext.dependencies["fast-sharedpreferences"]
+}
