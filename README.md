@@ -1,4 +1,4 @@
-# mvpCommon/n
+# mvpCommon   
 mvp架构基础库  
 1.build.gradle(project)添加  
 repositories {  
@@ -10,7 +10,7 @@ dependencies {
     ...  
     implementation 'com.github.wutianchi:mvpCommon:v1.0'  
 }  
-3.AndroidManifest.xml添加 其中360和640为设计出图的规格，需要根据自己实际的UI图更改  
+3.AndroidManifest.xml添加 其中360和640为设计出图的规格，需要根据自己实际的UI图更改  拷下面的代码需要把《换成<
     《application  
         android:allowBackup="true"  
         android:icon="@mipmap/ic_launcher"  
@@ -18,10 +18,10 @@ dependencies {
         android:roundIcon="@mipmap/ic_launcher_round"  
         android:supportsRtl="true"  
         android:theme="@style/AppTheme">  
-        <meta-data  
+        《meta-data  
             android:name="design_width_in_dp"  
             android:value="360" />  
-        <meta-data
+        《meta-data
             android:name="design_height_in_dp"  
             android:value="640" />  
        ...  
