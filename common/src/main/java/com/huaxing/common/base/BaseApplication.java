@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.huaxing.common.BuildConfig;
 import com.huaxing.common.utils.Utils;
+import com.jeremy.fastsharedpreferences.FastSharedPreferences;
 import com.socks.library.KLog;
 
 public class BaseApplication extends Application {
@@ -23,8 +24,8 @@ public class BaseApplication extends Application {
      * @param application
      */
     public static synchronized void setApplication(@NonNull Application application) {
-        KLog.init(BuildConfig.LOG_DEBUG, "吴");//log全局tag设置
         Utils.init(application);
+        FastSharedPreferences.init(application);
         //注册监听每个activity的生命周期,便于堆栈式管理
         application.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 

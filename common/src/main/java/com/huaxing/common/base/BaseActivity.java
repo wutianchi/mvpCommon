@@ -50,6 +50,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
         setDatas();
     }
+    //设置透明度
+    protected int getTitleHeight() {
+        if (!Check.isNull(llHeaderContent)) {
+            llHeaderContent.setVisibility(View.VISIBLE);
+        }
+        return llHeaderContent.getHeight();
+    }
+    //设置透明度
+    protected void setTitleAlpha(float alpha) {
+        if (!Check.isNull(llHeaderContent)) {
+            llHeaderContent.setVisibility(View.VISIBLE);
+        }
+        llHeaderContent.setAlpha(alpha);
+    }
     //设置标题
     protected void setTitleText(String title) {
         if (!Check.isNull(llHeaderContent)) {

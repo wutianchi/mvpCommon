@@ -1,6 +1,7 @@
 package com.huaxing.common.utils;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
 
