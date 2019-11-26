@@ -8,7 +8,7 @@ repositories {
 2.build.gradle(app)添加   
 dependencies {  
     ...  
-    implementation 'com.github.wutianchi:mvpCommon:v1.0'  
+    implementation 'com.github.wutianchi:mvpCommon:v1.0+'  
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 }  
 3.AndroidManifest.xml添加 其中360和640为设计出图的规格，需要根据自己实际的UI图更改  拷下面的代码需要把《换成<
@@ -31,7 +31,19 @@ dependencies {
 4.styles.xml文件下，主题换成无actionbar的例如：  
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">  
         <!-- Customize your theme here. -->  
-    </style>  
+    </style> 
+5.log设置   在application中设置
+        KLog.init(BuildConfig.LOG_DEBUG, "自定义");//log全局tag设置
+         debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
 5.试着用吧  
 
     
