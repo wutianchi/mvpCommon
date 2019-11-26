@@ -1,5 +1,16 @@
 # mvpCommon   
-mvp架构基础库  
+mvp架构基础库 
+#这是一个mvp架构的基础开发库，主要基于Rxjava + Retrofit + Okhttp + Glide 已经处理了沉浸式标题栏相关
+其中引入了比较常用的第三方库包含
+butterknife，常用注解库
+autosize最佳适配方案 
+klog最小日志打印
+easypermissions 简单权限请求
+live-event-bus 消息总线，具备生命周期感知能力，无需解除绑定
+BaseRecyclerViewAdapterHelper recycleview通用适配器
+本库是自己根据自己的代码习惯粗略封装的，能够满足自己的基本开发需求
+在此仅作备份记录
+
 1.build.gradle(project)添加  
 repositories {  
         maven { url 'https://jitpack.io' }  
@@ -44,6 +55,6 @@ dependencies {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-5.试着用吧  
+6.试着用吧  
 
     
